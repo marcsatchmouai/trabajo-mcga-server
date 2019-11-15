@@ -11,6 +11,8 @@ const app = express()
 
 app.use(bodyParser.json())
 
+app.use(cors())
+
 app.get("/", (req, res) => {
     res.status(200).send("server working")
 })

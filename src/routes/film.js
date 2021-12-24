@@ -3,7 +3,6 @@ const router = express.Router();
 const filmController = require('../controllers/film');
 module.exports = () => {
   router.get('/All', filmController.getAllFilms);
-  router.get('/department/:department', filmController.getFilmByDepartment);
   router.get('/:filmId', filmController.getFilmById);
   router.delete('/:filmId', filmController.deleteFilm);
   router.post('/', filmController.addNewFilm);

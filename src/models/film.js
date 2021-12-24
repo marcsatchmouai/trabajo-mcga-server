@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
-  id: {
-    type: int,
+  _id: {
+    type: String,
     required: 'El Id es requerido.',
     trim: true,
   },
@@ -30,8 +30,8 @@ const filmSchema = new mongoose.Schema({
     type: Date,
     required: 'El director es requerido.',
     trim: true,
-  },
-  description: String,
+  }
+  
 });
 
 module.exports = mongoose.model('film', filmSchema);

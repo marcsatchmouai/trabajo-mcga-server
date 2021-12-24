@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
 require('dotenv').config({ path: '.env' });
+
+const MONGO_URI ='mongodb+srv://marc:eb54PbyWseyULCN@cluster0.odm2c.mongodb.net/FilmDatabase?retryWrites=true&w=majority'
+
 mongoose
-  .connect(process.env.MONGO_URI, { useNewUrlParser: true })
+  .connect(MONGO_URI, { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {
-    console.log(`Database: Films ~ Online`);
+    console.log(`Database: FilmDatabase ~ Online`);
   })
   .catch((e) => {
     console.error(e);

@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
-  titulo: {
+  id: {
     type: int,
+    required: 'El Id es requerido.',
+    trim: true,
+  },
+  titulo: {
+    type: String,
     required: 'El titulo es requerido.',
     trim: true,
   },

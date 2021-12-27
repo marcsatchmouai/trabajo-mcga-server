@@ -26,14 +26,14 @@ const userRoutes = require('./routes/user');
 app.use('/api/film', filmRoutes());
 app.use('/api/user', userRoutes());
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Films ~ Online - Running on PORT: ${process.env.PORT || 3000}`);
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Films ~ Online - Running on PORT: ${process.env.PORT || 4000}`);
 });
 
-// const myUser = {
-//     email: "marcsatchmo@gmail.com",
-//     password: "123456"
-// }
+const myUser = {
+     email: "marcsatchmo@gmail.com",
+     password: "123456"
+}
 
 // const app = express()
 

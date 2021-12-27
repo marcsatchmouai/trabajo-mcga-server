@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    required: 'El Id es requerido.',
-    trim: true,
-  },
   titulo: {
     type: String,
     required: 'El titulo es requerido.',
@@ -17,7 +12,7 @@ const filmSchema = new mongoose.Schema({
     trim: true,
   },
   anio: {
-    type: Date,
+    type: String,
     required: 'El año es requerido.',
     trim: true,
   },
@@ -27,7 +22,7 @@ const filmSchema = new mongoose.Schema({
     trim: true,
   },
   director: {
-    type: Date,
+    type: String,
     required: 'El director es requerido.',
     trim: true,
   }

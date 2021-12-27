@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
   titulo: {
-    type: int,
+    type: String,
     required: 'El titulo es requerido.',
     trim: true,
   },
@@ -12,7 +12,7 @@ const filmSchema = new mongoose.Schema({
     trim: true,
   },
   anio: {
-    type: Date,
+    type: String,
     required: 'El año es requerido.',
     trim: true,
   },
@@ -22,11 +22,11 @@ const filmSchema = new mongoose.Schema({
     trim: true,
   },
   director: {
-    type: Date,
+    type: String,
     required: 'El director es requerido.',
     trim: true,
-  },
-  description: String,
+  }
+  
 });
 
 module.exports = mongoose.model('film', filmSchema);

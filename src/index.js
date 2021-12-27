@@ -26,57 +26,47 @@ const userRoutes = require('./routes/user');
 app.use('/api/film', filmRoutes());
 app.use('/api/user', userRoutes());
 
-app.listen(process.env.PORT || 4000, () => {
-  console.log(`Films ~ Online - Running on PORT: ${process.env.PORT || 4000}`);
-});
 
 const myUser = {
      email: "marcsatchmo@gmail.com",
      password: "123456"
 }
 
-// const app = express()
+app.get("/", (req, res) => {
+    res.status(200).send("server working")
+})
 
-// app.use(bodyParser.json())
+app.post("/login", (req, res) => {
+    console.log(req.body)
 
+    if (!req.body.email) {
+        return res.status(400).send({
+            success: false,
+            message: "Email is required"
+        })
+    }
 
-// app.use(cors())
+    if (!req.body.password) {
+        return res.status(400).send({
+            success: false,
+            message: "Password is required"
+        })
+    }
 
-// app.get("/", (req, res) => {
-//     res.status(200).send("server working")
-// })
+    if (req.body.email !== myUser.email || req.body.password !== myUser.password){
+        return res.status(401).send({
+            success: false,
+            message: "User not exist"
+        })
+    }
 
-// app.post("/login", (req, res) => {
-//     console.log(req.body)
+    res.status(200).send({
+        success: true,
+        message: "User logged successfully",
+        user: myUser
+    })
+})
 
-//     if (!req.body.email) {
-//         return res.status(400).send({
-//             success: false,
-//             message: "Email is required"
-//         })
-//     }
-
-//     if (!req.body.password) {
-//         return res.status(400).send({
-//             success: false,
-//             message: "Password is required"
-//         })
-//     }
-
-//     if (req.body.email !== myUser.email || req.body.password !== myUser.password){
-//         return res.status(401).send({
-//             success: false,
-//             message: "User not exist"
-//         })
-//     }
-
-//     res.status(200).send({
-//         success: true,
-//         message: "User logged successfully",
-//         user: myUser
-//     })
-// })
-
-// app.listen(process.env.PORT || 4000, () => {
-//     console.log("Server working on localhost:4000")
-// })
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Films ~ Online - Running on PORT: ${process.env.PORT || 4000}`);
+});

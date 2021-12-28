@@ -21,10 +21,10 @@ exports.updateFilm = async (req, res) => {
   try {
     const body = req.body;
 
-    if (!body.filmId)
+    if (!body._id)
       return res.status(400).json('No existe la pelicula con ese Id.');
 
-    const film = await Film.findByIdAndUpdate(body.filmId, body, {
+    const film = await Film.findByIdAndUpdate(body._id, body, {
       new: true,
     });
 
